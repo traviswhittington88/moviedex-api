@@ -31,20 +31,11 @@ function handleGetMovie(req, res) {
             res.status(400).send('please provide a numeric value for avg_vote parameter');
         }
 
-        /*const response = MOVIEDEX
+        const response = MOVIEDEX
               .filter(movie => { return movie.avg_vote >= avg_voteNum 
             }).filter(movie => { return (movie.genre.toLowerCase()).includes(genre.toLowerCase())
             }).filter(movie => { return (movie.country.toLowerCase()).includes(country.toLowerCase())
-            }) */
-         
-        const avgResponse = MOVIEDEX.filter(movie =>  movie.avg_vote >= avg_voteNum);
-   
-
-        const genreResponse = avgResponse.filter(movie => 
-            (movie.genre.toLowerCase()).includes(genre.toLowerCase()))
-
-        const response = genreResponse.filter(movie => 
-            (movie.country.toLowerCase()).includes(country.toLowerCase()))
+            }) 
         
         if(response.length === 0) {
             res.status(400).send('no movies with that avg_vote, try again')
