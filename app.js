@@ -70,7 +70,7 @@ function handleGetMovie(req, res) {
             res.status(400).send('no movies with that avg_vote, try again')
         }
         const sortedResponse = response.sort((a, b) => {
-          return a[avg_voteNum] > b[avg_voteNum] ? 1 : a[avg_voteNum] < b[avg_voteNum] ? -1 : 0;
+          return a.avg_vote > b.avg_vote ? 1 : a.avg_vote < b.avg_vote ? -1 : 0;
         })
         
         return res.status(200).json(sortedResponse);
